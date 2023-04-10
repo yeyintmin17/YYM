@@ -1,19 +1,18 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 
-import { HomeSectionTxts } from '../utils/constants';
+import { homeSectionTxts } from '../utils/constants';
 
-const HomeSection = () => {
+const HomeSection = ({ backgroundColor, py }) => {
     return (
-        <Box id='#home-section' py={12.5} sx={{ backgroundColor: 'var(--body)'}}>
+        <Box id='home-section' py={py} sx={{ backgroundColor }}>
             <Stack spacing={0.5} justifyContent='center' alignItems='center' sx={{ height: '100%', textAlign: 'center' }}>
                 {
-                    HomeSectionTxts.map(val => (
+                    homeSectionTxts.map(val => (
                         <Typography 
                             key={val.txt}
                             sx={{ width: val.width, color: val.color, fontSize: val.size }}
                             dangerouslySetInnerHTML={{ __html: val.txt }}
-                            
                         />
                     ))
                 }

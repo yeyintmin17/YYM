@@ -64,19 +64,19 @@ const NavbarNav = () => {
                 <Stack direction={{ md: 'row', xs: 'column'}} spacing={2}>
                     {
                         navLinks.map(val => (
-                            <a 
-                                href={'#' + val.txt + '-section'} 
-                                key={val.txt} 
+                            <a
+                                href={'/#' + val.title + '-section'} 
+                                key={val.title} 
 
                                 className='nav-link' 
                                 style={{ 
-                                    color: val.txt === navTxt ? 'var(--primary)' : 'var(--white-non-active)',
-                                    opacity: val.txt === navTxt ? 1 : 0.8
+                                    color: val.title === navTxt ? 'var(--primary)' : 'var(--white-non-active)',
+                                    opacity: val.title === navTxt ? 1 : 0.8
                                 }}
 
-                                onClick={() => setNavTxt(val.txt)}
+                                onClick={() => setNavTxt(val.title)}
                             >
-                                {val.icon} <span className='nav-txt'>{val.txt}</span>
+                                {val.icon} <span className='nav-txt'>{val.title}</span>
                             </a>
                         ))
                     }

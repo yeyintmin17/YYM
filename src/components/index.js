@@ -9,5 +9,7 @@ export { default as SkillsSection } from './SkillsSection';
 export { default as ProjectsSection } from './ProjectsSection';
 export { default as ContactSection } from './ContactSection';
 
+export { default as SectionTitle } from './SectionTitle';
+
 export { default as MoreProjects } from './MoreProjects';
 export { default as ProjectDetail } from './ProjectDetail';
