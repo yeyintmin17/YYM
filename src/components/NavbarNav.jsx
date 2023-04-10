@@ -40,7 +40,7 @@ const NavbarNav = () => {
                     width: 40,
                     height: 40,
                     backgroundColor: 'var(--btn-night)', 
-                    color: 'var(--primary-night)', 
+                    color: 'var(--primary)', 
                     fontSize: 20,
 
                     display: {md: 'none', sx: 'block'},
@@ -70,7 +70,7 @@ const NavbarNav = () => {
 
                                 className='nav-link' 
                                 style={{ 
-                                    color: val.txt === navTxt ? 'var(--primary-night)' : 'var(--white-non-active)',
+                                    color: val.txt === navTxt ? 'var(--primary)' : 'var(--white-non-active)',
                                     opacity: val.txt === navTxt ? 1 : 0.8
                                 }}
 

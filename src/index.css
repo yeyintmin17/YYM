@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
 
 :root{
-    --primary-night: #B9ED64;
+    --primary: #B9ED64;
 
-    --body-night: #2B3229;
-    --body-non-active-night: #475344;
+    --body: #2B3229;
+    --body-non-active: #475344;
 
     --black: #222222;
     --black-non-active: #444444;
@@ -23,11 +23,60 @@
 }
 
 body{
-    font-family: 'Kanit', sans-serif;
+    font-family: 'Kanit', sans-serif !important;
+}
+
+.txt-primary{
+    color: var(--primary);
+}
+
+.main-btn{
+    color: var(--primary);
+    font-weight: 700;
+
+    text-decoration: none;
+    letter-spacing: 1.5px;
+    user-select: none;
+
+    padding: 5px 30px;
+    position: relative;
+}
+
+.main-btn::before, 
+.main-btn::after{
+    content: '';
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--primary);
+
+    position: absolute;
+    transition: all 0.25s ease-out;
+}
+
+.main-btn::before{
+    left: 4px;
+    top: -4px;
+}
+
+.main-btn::after{
+    left: -4px;
+    top: 4px;
+}
+
+.main-btn:hover{
+    background-color: var(--primary);
+    color: var(--black);
+    transition: all 0.25s linear 0.25s;
+}
+
+.main-btn:hover::before,
+.main-btn:hover::after{
+    left: 0;
+    top: 0;
 }
 
 .navbar-nav{
-    background-color: var(--body-night);
+    background-color: var(--body);
 }
 
 .nav-link{
@@ -54,7 +103,7 @@ body{
 .nav-pointer{
     width: 10px;
     height: 10px;
-    background-color: var(--primary-night);
+    background-color: var(--primary);
     border-radius: 50%;
 
     position: absolute;
@@ -74,6 +123,7 @@ body{
         position: fixed;
         left: 0;
         top: 0;
+        z-index: 100;
     }
 
     .nav-txt{
