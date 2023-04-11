@@ -17,7 +17,7 @@ const HomeSection = ({ backgroundColor, py }) => {
                     ))
                 }
 
-                <a href='/#contact-section' className='main-btn' style={{ marginTop: '20px' }}>Contact</a>
+                <a href='/#contact-section' className='btn main-btn' style={{ marginTop: '20px' }}>Contact</a>
             </Stack>
         </Box>
     )

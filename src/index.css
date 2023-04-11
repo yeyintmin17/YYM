@@ -31,13 +31,15 @@ body{
     color: var(--primary);
 }
 
-.main-btn{
-    color: var(--primary);
-    font-weight: 700;
-
+.btn{
     text-decoration: none;
     letter-spacing: 1.5px;
     user-select: none;
+}
+
+.main-btn{
+    color: var(--primary);
+    font-weight: 700;
 
     padding: 5px 30px;
     position: relative;
@@ -51,33 +53,66 @@ body{
     border: 2px solid var(--primary);
 
     position: absolute;
+    left: 0;
+    top: 0;
     transition: all 0.25s ease-out;
 }
 
 .main-btn::before{
-    left: 4px;
-    top: -4px;
+    transform: translate(5px, -5px);
 }
 
 .main-btn::after{
-    left: -4px;
-    top: 4px;
+    transform: translate(-5px, 5px);
 }
 
 .main-btn:hover{
     background-color: var(--primary);
     color: var(--black);
+
     transition: all 0.25s linear 0.25s;
 }
 
 .main-btn:hover::before,
 .main-btn:hover::after{
-    left: 0;
-    top: 0;
+    transform: translate(0px);
+}
+
+.normal-btn{
+    color: var(--primary);
+    font-weight: 700;
+   
+    padding: 5px 20px;
+    border: 2px solid var(--primary);
+}
+
+.normal-btn:hover{
+    background-color: var(--primary);
+    color: var(--black);
+}
+
+.icon-btn{
+    width: 40px;
+    height: 40px;
+    background-color: var(--btn-night);
+
+    text-decoration: none;
+    border-radius: 10px;
+    
+    display: grid;
+    place-items: center;
 }
 
 .section{
     position: relative;
+}
+
+.link-hover{
+    color: var(--white-non-active);
+}
+
+.link-hover:hover{
+    color: var(--primary);
 }
 
 /* Start Navbar Section */

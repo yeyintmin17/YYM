@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import { Box, Stack } from '@mui/material';
 
 import { NavbarNav } from './';
-import mainLogo from '../assets/logo/main_logo_2.svg';
 
 const Navbar = ({ backBtn, nav, mainBtn }) => {
     return (
@@ -15,12 +14,12 @@ const Navbar = ({ backBtn, nav, mainBtn }) => {
         >
             <Link to='/'>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <img src={mainLogo} alt='Main Logo' />
+                    <img src='./assets/logo/main_logo_2.svg' alt='Main Logo' />
                 </Box>
             </Link>
             
             {nav && <NavbarNav/>}
-            {mainBtn && (<a href='/#contact-section' className='main-btn'>Contact</a>)}
+            {mainBtn && (<a href='/#contact-section' className='btn main-btn'>Contact</a>)}
         </Stack>
     )
 }

@@ -13,3 +13,5 @@ export { default as SectionTitle } from './SectionTitle';
 
 export { default as MoreProjects } from './MoreProjects';
 export { default as ProjectDetail } from './ProjectDetail';
+
+export { default as ProjectCard } from './ProjectCard';

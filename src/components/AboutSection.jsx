@@ -4,7 +4,6 @@ import { Box, Stack, Typography } from '@mui/material';
 import { SectionTitle } from './';
 
 import { aboutMe } from '../utils/constants';
-import profile from '../assets/img/profile/pro2.jpg';
 
 const AboutSection = ({ num, backgroundColor, py }) => {
     return (
@@ -18,7 +17,7 @@ const AboutSection = ({ num, backgroundColor, py }) => {
                 subtitleColor='var(--white)'
             />
 
-            <Stack spacing={5} justifyContent='center' alignItems='center'>
+            <Stack justifyContent='center' alignItems='center' rowGap={5}>
                 <Box
                     sx={{
                         width: { xs: 200, md: 250 },
@@ -32,12 +31,13 @@ const AboutSection = ({ num, backgroundColor, py }) => {
 
                             position: 'absolute',
                             left: '15px',
-                            top: '15px',
+                            top: '15px'
                         }
                     }}
                 >
                     <img 
-                        src={profile} alt='Profile' 
+                        src={aboutMe.img}
+                        alt='Profile' 
                         width='100%' height='100%' 
                         style={{
                             objectFit: 'cover',

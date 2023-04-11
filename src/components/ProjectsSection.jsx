@@ -1,7 +1,9 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { Box, Grid } from '@mui/material';
 
-import { SectionTitle } from './';
+import { SectionTitle, ProjectCard } from './';
+import { projects } from '../utils/constants';
 
 const ProjectsSection = ({ num, backgroundColor, py }) => {
     return (
@@ -15,6 +17,19 @@ const ProjectsSection = ({ num, backgroundColor, py }) => {
                 subtitleColor='var(--white)'
             />
             
+            <Grid container width='90%' mx='auto' gap={4}>
+                {
+                    projects.map(project => (
+                        <Grid key={project.name} item xs={12} md={6}>
+                            <ProjectCard project={project}/>
+                        </Grid>
+                    ))
+                }
+            </Grid>
+
+            <Box mt={6} sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Link to='/more-projects/all' className='btn normal-btn'>More Projects</Link>
+            </Box>
         </Box>
     )
 }

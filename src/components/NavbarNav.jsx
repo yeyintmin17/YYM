@@ -43,7 +43,7 @@ const NavbarNav = () => {
                     color: 'var(--primary)', 
                     fontSize: 20,
 
-                    display: {md: 'none', sx: 'block'},
+                    display: { sx: 'block', md: 'none' },
 
                     position: 'relative',
                     zIndex: 200

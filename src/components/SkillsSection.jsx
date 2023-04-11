@@ -17,13 +17,16 @@ const SkillsSection = ({ num, backgroundColor, py }) => {
                 subtitleColor='var(--white)'
             /> 
             
-            <Grid container rowSpacing={3} width={{ xs: '90%', md: '70%', lg: '50%' }} mx='auto'>
+            <Grid container rowGap={3} width={{ xs: '90%', md: '70%', lg: '50%' }} mx='auto'>
                 {
                     skills.map(skill => (
                         <Grid key={skill.name} item xs={3}>
                             <Link 
-                                to={skill.link && `/more-projects/${skill.name.toLowerCase()}`}
-                                style={{ textDecoration: 'none' }}
+                                to={skill.link && `/more-projects/${skill.name.toLowerCase().replace(/\s/g, '')}`}
+                                style={{ 
+                                    textDecoration: 'none', 
+                                    cursor: !skill.link && 'default' 
+                                }}
                             >
                                 <Typography
                                     sx={{
@@ -31,7 +34,8 @@ const SkillsSection = ({ num, backgroundColor, py }) => {
                                         display: 'flex',
                                         flexDirection: 'column',
                                         justifyContent: 'center',
-                                        alignItems: 'center'
+                                        alignItems: 'center',
+                                        '&:hover': { color: skill.link && 'var(--primary)' }
                                     }}
                                 >
                                     <span style={{ fontSize: 40 }}>{skill.icon}</span>
