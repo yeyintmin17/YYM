@@ -5,7 +5,11 @@ import { Box, Typography, Card, CardActionArea, CardContent, CardMedia } from '@
 const ProjectCard = ({ project }) => {
     return (
         <Card
-            sx={{ backgroundColor: 'var(--black)' }}
+            sx={{ 
+                width: '90%',
+                backgroundColor: 'var(--black)',
+                mx: 'auto'
+             }}
         >
             <CardContent 
                 sx={{ 

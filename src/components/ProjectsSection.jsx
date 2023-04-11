@@ -17,10 +17,10 @@ const ProjectsSection = ({ num, backgroundColor, py }) => {
                 subtitleColor='var(--white)'
             />
             
-            <Grid container width='90%' mx='auto' gap={4}>
+            <Grid container rowGap={{ xs: 4, sm: 5 }}>
                 {
                     projects.map(project => (
-                        <Grid key={project.name} item xs={12} md={6}>
+                        <Grid key={project.name} item xs={12} sm={6}>
                             <ProjectCard project={project}/>
                         </Grid>
                     ))
