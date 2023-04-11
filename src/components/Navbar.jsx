@@ -20,7 +20,7 @@ const Navbar = ({ backBtn, nav, mainBtn }) => {
             </Link>
             
             {nav && <NavbarNav/>}
-            {mainBtn && (<a href='#contact-section' className='main-btn'>Contact</a>)}
+            {mainBtn && (<a href='/#contact-section' className='main-btn'>Contact</a>)}
         </Stack>
     )
 }

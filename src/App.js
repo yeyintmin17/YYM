@@ -25,7 +25,7 @@ const App = () => {
 
                     <Routes>
                         <Route path='/' element={<MainPage/>}/>
-                        <Route path='/more-projects' element={<MoreProjects/>}/>
+                        <Route path='/more-projects/:category' element={<MoreProjects/>}/>
                         <Route path='/project-detail/:id' element={<ProjectDetail/>}/>
                     </Routes>
                 </Box>

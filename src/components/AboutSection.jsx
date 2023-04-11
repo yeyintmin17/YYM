@@ -51,7 +51,7 @@ const AboutSection = ({ num, backgroundColor, py }) => {
                     variant='h5'
                     dangerouslySetInnerHTML={{ __html: aboutMe.txt }}
                     sx={{ 
-                        width: { xs: '90%', sm: '70%', lg: '50%' }, 
+                        width: { xs: '90%', sm: '450px' }, 
                         color: 'var(--white)', 
                         textAlign: 'center', 
                         lineHeight: 1.5,
