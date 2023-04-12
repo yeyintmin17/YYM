@@ -39,14 +39,14 @@ const NavbarNav = () => {
                 sx={{ 
                     width: 40,
                     height: 40,
-                    backgroundColor: 'var(--btn-night)', 
+                    backgroundColor: 'var(--btn)', 
                     color: 'var(--primary)', 
                     fontSize: 20,
 
                     display: { sx: 'block', md: 'none' },
 
                     position: 'relative',
-                    zIndex: 200
+                    zIndex: 300
                 }}
                 onClick={() => setCollapsed(!collapsed)}
             >

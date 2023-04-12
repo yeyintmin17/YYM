@@ -1,13 +1,22 @@
+import moment from 'moment-timezone';
+
+const calcAge = (birthDate, timeZone) => {
+    const currentDate = moment().tz(timeZone);
+    return currentDate.diff(birthDate, 'years');
+}
+
+const age = calcAge(moment('2003-12-17'), 'Asia/Yangon')
+
 export const navLinks = [
-    { title: "home", subtitle: null, icon: <i className="fas fa-home"></i> },
+    { title: "home", subtitle: null, icon: <i className="fa-solid fa-house"></i> },
 
-    { title: "about", subtitle: 'who am i ?', icon: <i className="fas fa-user-astronaut"></i> },
+    { title: "about", subtitle: 'who am i ?', icon: <i className="fa-solid fa-user-astronaut"></i> },
 
-    { title: "skills", subtitle: 'what can i do ?', icon: <i className="fas fa-lightbulb"></i> },
+    { title: "skills", subtitle: 'what can i do ?', icon: <i className="fa-solid fa-lightbulb"></i> },
 
-    { title: "projects", subtitle: 'what have i done ?', icon: <i className="fas fa-cubes"></i> },
+    { title: "projects", subtitle: 'what have i done ?', icon: <i className="fa-solid fa-cubes"></i> },
     
-    { title: "contact", subtitle: 'get in touch', icon: <i className="fas fa-envelope"></i> },
+    // { title: "contact", subtitle: 'get in touch', icon: <i className="fa-solid fa-envelope"></i> },
 ]
 
 export const homeSectionTxts = [
@@ -20,7 +29,7 @@ export const homeSectionTxts = [
 
 export const aboutMe = {
     img: './assets/img/profile/pro2.jpg',
-    txt: "Hello  everyone. I’m Ye Yint Min. 19 years old. I started studying programming in July 2021. Currently, I am learning React & PHP. Have a nice day."
+    txt: `Hello  everyone. I’m Ye Yint Min. ${age} years old. I started studying programming in July 2021. Currently, I am learning React & PHP. Have a nice day.`
 }
 
 export const skills = [
@@ -50,6 +59,8 @@ export const projects = [
 
         demo: "https://moscowyym.netlify.app/",
         repo: "https://github.com/yeyintmin17/moscowcafe",
+
+        show: true
     },
 
     { 
@@ -68,6 +79,8 @@ export const projects = [
 
         demo: "https://tyndalecloneyym.netlify.app/",
         repo: "https://github.com/yeyintmin17/tyndaleclone",
+
+        show: true
     },
 
     { 
@@ -86,5 +99,21 @@ export const projects = [
 
         demo: "https://oetsuyym.netlify.app/",
         repo: "https://github.com/yeyintmin17/oetsu",
+
+        show: true
     },
+]
+
+export const contacts = [
+    { icon: <i className="fas fa-phone-alt"></i>, txt: "+959 260 898 441", link: 'tel:+956260898441', show: true },
+
+    { icon: <i className="fas fa-envelope"></i>, txt: "blone5128@gmail.com", link: 'mailto:blone5128@gmail.com', show: true },
+
+    { icon: <i className="fab fa-linkedin-in"></i>, txt: "LinkedIn", link: 'https://linkedin.com/in/ye-yint-min-0a10a1261', show: true },
+
+    { icon: <i className='bx bxl-github'></i>, txt: "GitHub", link: 'https://github.com/yeyintmin17', show: true },
+
+    { icon: <i className='bx bxl-facebook'></i>, txt: "Facebook", link: 'https://www.facebook.com/profile.php?id=100077012995984', show: false },
+
+    { icon: <i className='bx bxl-telegram'></i>, txt: "Telegram", link: 'https://t.me/yeyintmin17', show: false }
 ]

@@ -5,7 +5,7 @@ import { Box, Stack } from '@mui/material';
 
 import { NavbarNav } from './';
 
-const Navbar = ({ backBtn, nav, mainBtn }) => {
+const Navbar = ({ nav }) => {
     return (
         <Stack 
             direction='row' justifyContent='space-between' alignItems='center' 
@@ -19,7 +19,6 @@ const Navbar = ({ backBtn, nav, mainBtn }) => {
             </Link>
             
             {nav && <NavbarNav/>}
-            {mainBtn && (<a href='/#contact-section' className='btn main-btn'>Contact</a>)}
         </Stack>
     )
 }

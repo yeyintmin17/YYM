@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Stack, Typography } from '@mui/material';
+import { Box, Stack, Typography, Button } from '@mui/material';
 
 import { homeSectionTxts } from '../utils/constants';
 
@@ -16,8 +16,6 @@ const HomeSection = ({ backgroundColor, py }) => {
                         />
                     ))
                 }
-
-                <a href='/#contact-section' className='btn main-btn' style={{ marginTop: '20px' }}>Contact</a>
             </Stack>
         </Box>
     )

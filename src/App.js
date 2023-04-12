@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Box, CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { Navbar, MainPage, MoreProjects, ProjectDetail } from './components';
+import { Navbar, MainPage, MoreProjects, ProjectDetail, ContactIcons } from './components';
 
 const theme = createTheme({
     typography: {
@@ -21,7 +21,8 @@ const App = () => {
 
             <BrowserRouter>
                 <Box>
-                    <Navbar backBtn={false} nav={true} mainBtn={false}/>
+                    <Navbar nav={true}/>
+                    <ContactIcons/>
 
                     <Routes>
                         <Route path='/' element={<MainPage/>}/>

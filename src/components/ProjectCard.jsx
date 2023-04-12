@@ -4,13 +4,7 @@ import { Box, Typography, Card, CardActionArea, CardContent, CardMedia } from '@
 
 const ProjectCard = ({ project }) => {
     return (
-        <Card
-            sx={{ 
-                width: '90%',
-                backgroundColor: 'var(--black)',
-                mx: 'auto'
-             }}
-        >
+        <Card sx={{ backgroundColor: 'var(--black)' }} >
             <CardContent 
                 sx={{ 
                     color: 'var(--white)',
@@ -23,7 +17,7 @@ const ProjectCard = ({ project }) => {
                 }}
             >
                 <span>
-                    <i className="fas fa-cube"></i> 0{project.num}
+                    <i className="fa-solid fa-cube"></i> 0{project.num}
                 </span>
 
                 <Link 
@@ -48,10 +42,10 @@ const ProjectCard = ({ project }) => {
 
             <CardContent
                 sx={{ 
+                    p: '16px !important',
                     display: 'flex',
                     justifyContent: 'space-between',
                     alignItems: 'center',
-                    p: '16px !important'
                 }}
             >
                 <Box 
@@ -62,11 +56,11 @@ const ProjectCard = ({ project }) => {
                         gap: '10px',
                     }}
                 >
-                    <a href={project.repo} target='_blank' className='icon-btn link-hover'>
+                    <a href={project.repo} target='_blank' className='btn icon-btn link-hover'>
                         <i className="fab fa-github"></i>
                     </a>
 
-                    <a href={project.demo} target='_blank' className='icon-btn link-hover'>
+                    <a href={project.demo} target='_blank' className='btn icon-btn link-hover'>
                         <i className="fas fa-link"></i>
                     </a>
                 </Box>

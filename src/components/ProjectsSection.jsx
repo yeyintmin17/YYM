@@ -17,15 +17,19 @@ const ProjectsSection = ({ num, backgroundColor, py }) => {
                 subtitleColor='var(--white)'
             />
             
-            <Grid container rowGap={{ xs: 4, sm: 5 }}>
-                {
-                    projects.map(project => (
-                        <Grid key={project.name} item xs={12} sm={6}>
-                            <ProjectCard project={project}/>
-                        </Grid>
-                    ))
-                }
-            </Grid>
+            <Box width='90%' mx='auto'>
+                <Grid container spacing={4}>
+                    {
+                        projects.map(project => (         
+                            project.show && (
+                                <Grid key={project.name} item xs={12} sm={6}>
+                                    <ProjectCard project={project}/>
+                                </Grid>
+                            )   
+                        ))
+                    }
+                </Grid>
+            </Box>
 
             <Box mt={6} sx={{ display: 'flex', justifyContent: 'center' }}>
                 <Link to='/more-projects/all' className='btn normal-btn'>More Projects</Link>

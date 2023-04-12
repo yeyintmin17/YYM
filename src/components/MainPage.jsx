@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 
-import { HomeSection, AboutSection, SkillsSection, ProjectsSection, ContactSection } from './';
+import { HomeSection, AboutSection, SkillsSection, ProjectsSection, CopyrightSection } from './';
 
 const MainPage = () => {
     return (
@@ -10,7 +10,7 @@ const MainPage = () => {
             <AboutSection num={2} backgroundColor='var(--body-non-active)' py={12.5}/>
             <SkillsSection num={3} backgroundColor='var(--body)' py={12.5}/>
             <ProjectsSection num={4} backgroundColor='var(--body-non-active)' py={12.5}/>
-            <ContactSection num={5} backgroundColor='var(--primary)' py={25}/>
+            <CopyrightSection num={null} backgroundColor='var(--primary)' py={3.125}/>
         </Box>
     )
 }
