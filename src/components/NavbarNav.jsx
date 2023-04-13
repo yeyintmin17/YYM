@@ -65,7 +65,7 @@ const NavbarNav = () => {
                     {
                         navLinks.map(val => (
                             <a
-                                href={'/#' + val.title + '-section'} 
+                                href={"/#" + val.title + "-section"} 
                                 key={val.title} 
 
                                 className='nav-link' 

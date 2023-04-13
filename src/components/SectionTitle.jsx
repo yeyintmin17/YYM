@@ -4,7 +4,8 @@ import { Box, Typography } from '@mui/material';
 import { navLinks } from '../utils/constants';
 
 const SectionTitle = ({ title, num, top, numColor, titleColor, subtitleColor }) => {
-    const targetItem = navLinks.find(val => val.title === title);
+    const targetItem = navLinks.find(navLinks => navLinks.title === title);
+    if(!targetItem) return;
 
     return (
         <Box mb={13}>
@@ -12,12 +13,8 @@ const SectionTitle = ({ title, num, top, numColor, titleColor, subtitleColor }) 
                 <Typography 
                     variant='subtitle1'
                     sx={{
-                        color: titleColor,
-                        fontWeight: 700,
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        gap: '5px'
+                        color: titleColor, fontWeight: 700,
+                        display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '5px'
                     }}
                 >
                     {targetItem.icon}
@@ -26,10 +23,7 @@ const SectionTitle = ({ title, num, top, numColor, titleColor, subtitleColor }) 
 
                 <Typography 
                     variant='h6'
-                    sx={{
-                        color: subtitleColor,
-                        fontWeight: 700
-                    }}
+                    sx={{ color: subtitleColor, fontWeight: 700 }}
                 >
                     {targetItem.subtitle}
                 </Typography>
@@ -37,11 +31,8 @@ const SectionTitle = ({ title, num, top, numColor, titleColor, subtitleColor }) 
 
             <span style={{ 
                 color: numColor, 
-                fontSize: 15, 
-                fontWeight: 700,
-                position: 'absolute',
-                left: 0,
-                top
+                fontSize: 15, fontWeight: 700,
+                position: 'absolute', left: 0, top
             }}>
                 -- 0{num}
             </span>

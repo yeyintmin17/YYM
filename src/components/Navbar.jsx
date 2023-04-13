@@ -5,7 +5,7 @@ import { Box, Stack } from '@mui/material';
 
 import { NavbarNav } from './';
 
-const Navbar = ({ nav }) => {
+const Navbar = ({ nav, mainBtn }) => {
     return (
         <Stack 
             direction='row' justifyContent='space-between' alignItems='center' 
@@ -14,11 +14,12 @@ const Navbar = ({ nav }) => {
         >
             <Link to='/'>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <img src='./assets/logo/main_logo_2.svg' alt='Main Logo' />
+                    <img src='./assets/logo/main_logo_2.svg' alt='Main Logo' width='80px' />
                 </Box>
             </Link>
             
             {nav && <NavbarNav/>}
+            {mainBtn && <a href='/#contact-section' className='btn btn-sm main-btn'>Contact</a>}
         </Stack>
     )
 }

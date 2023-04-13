@@ -16,7 +16,7 @@ export const navLinks = [
 
     { title: "projects", subtitle: 'what have i done ?', icon: <i className="fa-solid fa-cubes"></i> },
     
-    // { title: "contact", subtitle: 'get in touch', icon: <i className="fa-solid fa-envelope"></i> },
+    { title: "contact", subtitle: 'get in touch', icon: <i className="fa-solid fa-mobile-screen-button"></i> },
 ]
 
 export const homeSectionTxts = [
@@ -105,15 +105,15 @@ export const projects = [
 ]
 
 export const contacts = [
-    { icon: <i className="fas fa-phone-alt"></i>, txt: "+959 260 898 441", link: 'tel:+956260898441', show: true },
+    { icon: <i className="fa-solid fa-square-phone"></i>, txt: "+959 260 898 441", link: 'tel:+956260898441', show: true },
 
-    { icon: <i className="fas fa-envelope"></i>, txt: "blone5128@gmail.com", link: 'mailto:blone5128@gmail.com', show: true },
+    { icon: <i className="fa-solid fa-square-envelope"></i>, txt: "blone5128@gmail.com", link: 'mailto:blone5128@gmail.com', show: true },
 
-    { icon: <i className="fab fa-linkedin-in"></i>, txt: "LinkedIn", link: 'https://linkedin.com/in/ye-yint-min-0a10a1261', show: true },
+    { icon: <i className="fa-brands fa-linkedin"></i>, txt: "LinkedIn", link: 'https://linkedin.com/in/ye-yint-min-0a10a1261', show: true },
 
-    { icon: <i className='bx bxl-github'></i>, txt: "GitHub", link: 'https://github.com/yeyintmin17', show: true },
+    { icon: <i className="fa-brands fa-square-github"></i>, txt: "GitHub", link: 'https://github.com/yeyintmin17', show: true },
 
-    { icon: <i className='bx bxl-facebook'></i>, txt: "Facebook", link: 'https://www.facebook.com/profile.php?id=100077012995984', show: false },
+    { icon: <i className="fa-brands fa-facebook"></i>, txt: "Facebook", link: 'https://www.facebook.com/profile.php?id=100077012995984', show: true },
 
-    { icon: <i className='bx bxl-telegram'></i>, txt: "Telegram", link: 'https://t.me/yeyintmin17', show: false }
+    { icon: <i className="fa-brands fa-telegram"></i>, txt: "Telegram", link: 'https://t.me/yeyintmin17', show: true }
 ]

@@ -123,7 +123,6 @@ body{
 /* Start Navbar Section */
 
 .navbar-nav{
-    background-color: var(--body);
     position: relative;
 }
 
@@ -164,13 +163,14 @@ body{
 
 @media (max-width: 900px){
     .navbar-nav{
-        width: 100vw;
-        height: 100vh;
-        padding: 60px 0;
+        background-color: var(--btn);
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 2.5px 0 var(--mirror);
 
         position: fixed;
-        left: 0;
-        top: 0;
+        right: 20px;
+        top: calc(10vh + 20px);
         z-index: 100;
     }
 
