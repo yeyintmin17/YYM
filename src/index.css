@@ -23,8 +23,24 @@
     scroll-behavior: smooth;
 }
 
+html{
+    scrollbar-color: var(--primary) var(--black);
+}
+
 body{
     font-family: 'Kanit', sans-serif !important;
+}
+
+*::-webkit-scrollbar{
+    width: 8px;
+}
+
+*::-webkit-scrollbar-track{
+    background-color: var(--black);
+}
+
+*::-webkit-scrollbar-thumb{
+    background-color: var(--primary);
 }
 
 .txt-primary{
@@ -79,17 +95,12 @@ body{
     transform: translate(0px);
 }
 
-.normal-btn{
-    color: var(--primary);
-    font-weight: 700;
-   
-    padding: 5px 20px;
-    border: 2px solid var(--primary);
-}
-
-.normal-btn:hover{
-    background-color: var(--primary);
-    color: var(--black);
+.main-icon-btn{
+    width: 40px !important;
+    height: 40px !important;
+    background-color: var(--btn) !important;
+    color: var(--primary) !important;
+    font-size: 20px !important;
 }
 
 .icon-btn{
@@ -102,6 +113,19 @@ body{
     
     display: grid;
     place-items: center;
+}
+
+.normal-btn{
+    color: var(--primary);
+    font-weight: 700;
+   
+    padding: 5px 20px;
+    border: 2px solid var(--primary);
+}
+
+.normal-btn:hover{
+    background-color: var(--primary);
+    color: var(--black);
 }
 
 .btn-sm{
@@ -168,7 +192,7 @@ body{
         position: fixed;
         right: 20px;
         top: calc(10vh + 20px);
-        z-index: 100;
+        z-index: 200;
     }
 }
 
@@ -178,7 +202,7 @@ body{
 
 .left-side-bar-title{
     color: var(--white);
-    font-size: 18px;
+    font-size: 13px;
     margin-bottom: 20px !important;
 }
 

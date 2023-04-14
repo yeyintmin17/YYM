@@ -44,12 +44,9 @@ const NavbarNav = () => {
     return (
         <Box>
             <IconButton 
-                sx={{ 
-                    width: 40, height: 40,
-                    backgroundColor: 'var(--btn)', color: 'var(--primary)', 
-                    fontSize: 20,
+                className='main-icon-btn'
+                sx={{
                     display: { sx: 'block', md: 'none' },
-
                     position: 'relative', zIndex: 300
                 }}
                 onClick={() => setCollapsed(!collapsed)}
