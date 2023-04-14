@@ -21,11 +21,9 @@ const App = () => {
 
             <BrowserRouter>
                 <Box>
-                    <Navbar nav={true} mainBtn={false}/>
-
                     <Routes>
                         <Route path='/' element={<MainPage/>}/>
-                        <Route path='/more-projects/:category' element={<MoreProjects/>}/>
+                        <Route path='/more-projects/:categories' element={<MoreProjects/>}/>
                         <Route path='/project-detail/:id' element={<ProjectDetail/>}/>
                     </Routes>
                 </Box>

@@ -131,9 +131,6 @@ body{
     font-weight: 700;
     text-decoration: none;
 
-    display: flex;
-    align-items: center;
-
     padding: 5px 25px;
 }
 
@@ -164,7 +161,7 @@ body{
 @media (max-width: 900px){
     .navbar-nav{
         background-color: var(--btn);
-        padding: 20px;
+        padding: 15px;
         border-radius: 5px;
         box-shadow: 0 0 2.5px 0 var(--mirror);
 
@@ -173,10 +170,16 @@ body{
         top: calc(10vh + 20px);
         z-index: 100;
     }
-
-    .nav-txt{
-        margin-left: 15px;
-    }
 }
 
 /* End Navbar Section */
+
+/* Start Left Side Bar Section */
+
+.left-side-bar-title{
+    color: var(--white);
+    font-size: 18px;
+    margin-bottom: 20px !important;
+}
+
+/* End Left Side Bar Section */

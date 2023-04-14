@@ -1,8 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { Box } from '@mui/material';
+
+import { Navbar } from './';
 
 const ProjectDetail = () => {
     return (
-        <div>ProjectDetail</div>
+        <Box>
+            <Navbar nav={false} mainBtn={true}/>
+        </Box>
     )
 }
 

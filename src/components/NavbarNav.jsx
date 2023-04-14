@@ -30,23 +30,27 @@ const NavbarNav = () => {
         });
     }
 
-    useEffect(() => handleCollapsed(), []);
+    useEffect(() => {
+        handleCollapsed();
+
+        const hash = window.location.hash;
+        if(hash.includes('#')){
+            setNavTxt(hash.substring(1, hash.indexOf('-')))
+        }
+    }, []);
+
     useEffect(() => chNavLink(), [navTxt, collapsed]);
 
     return (
         <Box>
             <IconButton 
                 sx={{ 
-                    width: 40,
-                    height: 40,
-                    backgroundColor: 'var(--btn)', 
-                    color: 'var(--primary)', 
+                    width: 40, height: 40,
+                    backgroundColor: 'var(--btn)', color: 'var(--primary)', 
                     fontSize: 20,
-
                     display: { sx: 'block', md: 'none' },
 
-                    position: 'relative',
-                    zIndex: 300
+                    position: 'relative', zIndex: 300
                 }}
                 onClick={() => setCollapsed(!collapsed)}
             >

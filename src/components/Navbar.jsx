@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Box, Stack } from '@mui/material';
-
 import { NavbarNav } from './';
 
 const Navbar = ({ nav, mainBtn }) => {
@@ -14,7 +13,7 @@ const Navbar = ({ nav, mainBtn }) => {
         >
             <Link to='/'>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
-                    <img src='./assets/logo/main_logo_2.svg' alt='Main Logo' width='80px' />
+                    <img src='../assets/logo/main_logo_2.svg' alt='Main Logo' width='80px' />
                 </Box>
             </Link>
             
