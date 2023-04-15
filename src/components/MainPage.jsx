@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Box } from '@mui/material';
 
+import { Box } from '@mui/material';
 import { Navbar, HomeSection, AboutSection, SkillsSection, ProjectsSection, ContactSection } from './';
 
 const MainPage = () => {

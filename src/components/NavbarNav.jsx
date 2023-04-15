@@ -44,7 +44,7 @@ const NavbarNav = () => {
     return (
         <Box>
             <IconButton 
-                className='main-icon-btn'
+                color='primary'
                 sx={{
                     display: { sx: 'block', md: 'none' },
                     position: 'relative', zIndex: 300
@@ -53,7 +53,7 @@ const NavbarNav = () => {
             >
                 { 
                     collapsed 
-                        ? <i className="fas fa-hamburger"></i>
+                        ? <i className="fa-solid fa-hamburger"></i>
                         : <i className="fa-solid fa-xmark"></i>         
                 }
             </IconButton>

@@ -4,10 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Stack, Typography, Button, IconButton } from '@mui/material';
 import { projectCategories } from '../utils/constants';
 
-const LeftSideBar = ({ categoryArr }) => {
+const LeftSideBar = ({ width, height, categoryArr, collapsed, setCollapsed }) => {
     const [ categories, setCategories ] = useState(categoryArr);
-    const [ collapsed, setCollapsed ] = useState(true);
-
     const navigate = useNavigate();
 
     const addCategory = (category) => {
@@ -25,11 +23,10 @@ const LeftSideBar = ({ categoryArr }) => {
     return (
         <Box 
             sx={{ 
-                width: '200px', height: '100%', 
-                position: 'absolute',
-                left: collapsed ? '-200px' : 0, 
-                top: 0, zIndex: 200,
-                transition: 'left 0.25s ease-in-out'
+                width, height, 
+                position: 'absolute', left: 0, top: 0, zIndex: 200,
+                transform: collapsed ? 'translateX(-100%)' : 'translateX(0%)',
+                transition: 'transform 0.25s ease-out 0.3s'
             }}
         >
             <Box sx={{ height: '100%', backgroundColor: 'var(--body)', py: '30px', overflowY: 'auto' }}>
@@ -57,8 +54,6 @@ const LeftSideBar = ({ categoryArr }) => {
                                                 : 'var(--white-non-active) !important',
 
                                             display: 'block',
-                                            textTransform: 'none',
-                                            boxShadow: 'none !important'
                                         }}
                                     >
                                         {projectCategory}
@@ -71,22 +66,19 @@ const LeftSideBar = ({ categoryArr }) => {
             </Box>
 
             <IconButton 
-                className='main-icon-btn' 
+                color='primary'
                 sx={{ 
-                    position: 'fixed', 
-                    left: collapsed ? '0px' : '200px', 
-                    top: 'calc(10vh + 10px)', 
-                    zIndex: 300,
-                    transform: 'translateX(-30%)',
-                    transition: 'left 0.25s ease-in-out'
+                    position: 'absolute', 
+                    right: '0', top: '10px',  zIndex: 300,
+                    transform: 'translateX(70%)',
                 }}
                 onClick={() => setCollapsed(!collapsed)}
             >
                 <i 
                     className="fa-solid fa-anchor"
                     style={{ 
-                        transform: collapsed ? 'rotate(45deg)' : 'rotate(90deg)',
-                        transition: 'transform 0.25s ease-in-out 0.25s'
+                        transform: collapsed ? 'rotate(-90deg)' : 'rotate(45deg)',
+                        transition: 'transform 0.25s ease-in-out'
                     }}
                 />
             </IconButton>

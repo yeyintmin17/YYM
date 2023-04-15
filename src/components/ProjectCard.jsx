@@ -21,7 +21,7 @@ const ProjectCard = ({ project }) => {
                 </span>
 
                 <Link 
-                    to={`/more-project/${project.mainUsed.txt.toLowerCase().replace(/\s/g, '')}`}
+                    to={`/more-projects/${project.mainUsed.txt.toLowerCase().replace(/\s/g, '')}`}
                     className='link-hover'
                 > 
                     {project.mainUsed.icon} 
