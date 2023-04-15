@@ -5,7 +5,7 @@ import { Box, Stack, Typography, Button, IconButton } from '@mui/material';
 import { projectCategories } from '../utils/constants';
 
 const LeftSideBar = ({ width, height, categoryArr, collapsed, setCollapsed }) => {
-    const [ categories, setCategories ] = useState(categoryArr);
+    const [ categories, setCategories ] = useState([]);
     const navigate = useNavigate();
 
     const addCategory = (category) => {
@@ -19,6 +19,8 @@ const LeftSideBar = ({ width, height, categoryArr, collapsed, setCollapsed }) =>
         const url = categories.join('&');
         navigate(`/more-projects/${url.length > 0 ? url : 'all'}`);
     }
+
+    useEffect(() => setCategories(categoryArr), [categoryArr])
 
     return (
         <Box 
@@ -77,7 +79,7 @@ const LeftSideBar = ({ width, height, categoryArr, collapsed, setCollapsed }) =>
                 <i 
                     className="fa-solid fa-anchor"
                     style={{ 
-                        transform: collapsed ? 'rotate(-90deg)' : 'rotate(45deg)',
+                        transform: collapsed ? 'rotate(-90deg)' : 'rotate(90deg)',
                         transition: 'transform 0.25s ease-in-out'
                     }}
                 />

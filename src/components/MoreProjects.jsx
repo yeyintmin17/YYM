@@ -1,13 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { Box, Stack, Grid } from '@mui/material';
+import { Box, Stack, Grid, Typography } from '@mui/material';
 
-import { Navbar, LeftSideBar, ProjectCard } from './';
+import { Navbar, ProjectCard, LeftSideBar, CarouselControls } from './';
 import { projects } from '../utils/constants';
 
 const MoreProjects = () => {
     const { categories } = useParams();
     const [ collapsed, setCollapsed ] = useState(true);
+    const [ carIdx, setCarIdx ] = useState(0);
+
+    const leftSideBarWidth = { xs: '70%', sm: '300px' };
 
     let categoryArr = [];
     if(!(categories === 'all')) categoryArr = categories.split('&');
@@ -19,49 +22,79 @@ const MoreProjects = () => {
         ));
     }
 
-    const leftSideBarWidth = { xs: '70%', sm: '300px' };
+    let finalProjects = [];
+    const size = 12;
+    for(let i = 0; i < filterProjects.length; i += size){
+        const chunk = filterProjects.slice(i, i + size);
+        finalProjects.push(chunk)
+    }
+
+    useEffect(() => setCarIdx(0), [categories]);
+
+    if(filterProjects.length > 0 && !(finalProjects[carIdx])) return;
 
     return (
         <Box>
             <Navbar nav={false} mainBtn={true}/>
 
-            <Stack direction='row' sx={{ position: 'relative' }}>
+            <Stack 
+                direction='row' 
+                sx={{ 
+                    backgroundColor: 'var(--body-non-active)', 
+                    position: 'relative',
+                    overflow: 'hidden',
+                    '&::before': {
+                        content: "''",
+                        width: '100%', height: '100%',
+                        backgroundColor: 'var(--mirror)',
+                        position: 'absolute',
+                        left: 0, top: 0, zIndex: 1,
+                        display: collapsed ? 'none' : 'block'
+                    } 
+                }}
+            >
                 <LeftSideBar width={leftSideBarWidth} height='90vh' categoryArr={categoryArr} collapsed={collapsed} setCollapsed={setCollapsed} />
 
                 <Box 
-                    p="30px" flexGrow={1} 
+                    flexGrow={1} 
                     sx={{ 
                         height: '90vh',
-                        backgroundColor: 'var(--body-non-active)', 
-                        overflow: collapsed ? 'hidden auto' : 'hidden',
                         position: 'relative',
-                        '&::before': {
-                            content: "''",
-                            backgroundColor:  'var(--mirror)',
-                            position: 'absolute',
-                            left: 0, top: 0, right: 0, bottom: 0,
-                            zIndex: 1,
-                            backgroundColor: 'var(--mirror)',
-                            display: collapsed ? 'none' : 'block'
-                        }
+                        left: collapsed ? '0px' : leftSideBarWidth,
+                        transition: 'left 0.25s linear 0.25s'
                     }}
                 >
-                    <Grid 
-                        container spacing={4}
-                        sx={{
-                            position: 'relative',
-                            left: collapsed ? '0px' : leftSideBarWidth,
-                            transition: 'left 0.25s linear 0.25s'
-                        }}
-                    >
+                    <Box height={ filterProjects.length > size ? '90%' : '100%' } p="30px" sx={{ overflow: collapsed ? 'hidden auto' : 'hidden' }}>
+                        <Grid container spacing={4} mb={3} >
+                            {
+                                filterProjects.length > 0 
+                                    ? 
+                                        finalProjects[carIdx].map((finalProject, idx) => (               
+                                            <Grid key={idx} item xs={12} sm={6} md={4}>
+                                                <ProjectCard project={finalProject}/>
+                                            </Grid>      
+                                        ))
+                                    : ( 
+                                        <Typography
+                                            variant='h6' m='auto'
+                                            style={{ color: 'var(--white)', textAlign: 'center' }}
+                                        >
+                                            Projects No Found
+                                        </Typography> 
+                                    )
+                            }
+                        </Grid>
+                    </Box>
+
+                    <Box height={ filterProjects.length > size ? '10%' : '0%' } p="30px" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                         {
-                            filterProjects.map(filterProject => (               
-                                <Grid key={filterProject.name} item xs={12} sm={6} md={4}>
-                                    <ProjectCard project={filterProject}/>
-                                </Grid>      
-                            ))
+                            filterProjects.length > size && (
+                                <CarouselControls 
+                                    carIdx={carIdx} setCarIdx={setCarIdx} carLength={finalProjects.length}
+                                />
+                            )
                         }
-                    </Grid>
+                    </Box>
                 </Box>
             </Stack>
         </Box>

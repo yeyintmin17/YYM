@@ -48,9 +48,14 @@ body{
 }
 
 .btn{
+    border: none;
+    outline: none;
+
     text-decoration: none;
     letter-spacing: 1.5px;
+
     white-space: nowrap;
+    cursor: pointer;
     user-select: none;
 }
 
@@ -125,16 +130,17 @@ body{
     font-size: 10px;
 }
 
-.section{
-    position: relative;
-}
-
 .link-hover{
     color: var(--white-non-active);
 }
 
 .link-hover:hover{
     color: var(--primary);
+}
+
+
+.section{
+    position: relative;
 }
 
 /* Start Navbar Section */
@@ -200,3 +206,24 @@ body{
 }
 
 /* End Left Side Bar Section */
+
+/* Start Carousel Controls */
+
+.car-nums-con{
+    cursor: grab;
+
+    overflow: auto hidden;
+    scroll-snap-type: x;
+    scrollbar-width: 0px; /* for firefox */
+}
+
+.car-nums-con::-webkit-scrollbar{
+    display: none;
+}
+
+.car-nums-con > *{
+    flex-shrink: 0;
+    cursor: inherit;
+}
+
+/* End Carousel Controls */
