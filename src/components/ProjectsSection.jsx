@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Button } from '@mui/material';
 
 import { SectionTitle, ProjectCard } from './';
 import { projects } from '../utils/constants';
@@ -22,8 +22,8 @@ const ProjectsSection = ({ num, backgroundColor, py }) => {
                     {
                         projects.map(project => (         
                             project.show && (
-                                <Grid key={project.name} item xs={12} sm={6}>
-                                    <ProjectCard project={project}/>
+                                <Grid key={project.details.name} item xs={12} sm={6}>
+                                    <ProjectCard project={project} url='/' />
                                 </Grid>
                             )   
                         ))
@@ -32,7 +32,7 @@ const ProjectsSection = ({ num, backgroundColor, py }) => {
             </Box>
 
             <Box mt={6} sx={{ display: 'flex', justifyContent: 'center' }}>
-                <Link to='/more-projects/all' className='btn normal-btn'>More Projects</Link>
+                <Link to='/more-projects/all' className='btn border-btn'>More Projects</Link> 
             </Box>
         </Box>
     )

@@ -9,7 +9,7 @@ const CarouselControls = ({ carIdx, setCarIdx, carLength }) => {
     }
 
     const carNums = [];
-    for(let i = 0; i < 6; i++){
+    for(let i = 0; i < carLength; i++){
         carNums.push(
             <button 
                 key={i} className='btn icon-btn link-hover' 
@@ -26,6 +26,8 @@ const CarouselControls = ({ carIdx, setCarIdx, carLength }) => {
         tsIsPressed = true;
         tsStartX = e.clientX;
         e.currentTarget.style.cursor = 'grabbing';
+
+        console.log(e.clientX);
     }
 
     const tsEnd = (e) => {
@@ -35,7 +37,7 @@ const CarouselControls = ({ carIdx, setCarIdx, carLength }) => {
 
     const tsMove = (e) => {
         if(tsIsPressed){
-            e.currentTarget.scrollLeft = tsStartX - e.clientX;
+            e.currentTarget.scrollLeft += tsStartX - e.clientX;
         }
     }
 
@@ -47,7 +49,7 @@ const CarouselControls = ({ carIdx, setCarIdx, carLength }) => {
 
             <Stack 
                 direction='row' gap='5px' 
-                className='car-nums-con' sx={{ width: '115px' }} 
+                className='car-nums-con' sx={{ width: carLength > 2 ? '115px' : 'auto' }} 
                 onMouseDown={tsStart}
                 onMouseUp={tsEnd}
                 onMouseLeave={tsEnd}

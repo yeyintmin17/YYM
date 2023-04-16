@@ -18,7 +18,7 @@ const MoreProjects = () => {
     let filterProjects = projects;
     if(!(categories === 'all')){
         filterProjects = projects.filter(project => (
-            project.used.replace(/\s/g, '').toLowerCase().includes(categories.replace(/&/g, ','))
+            project.details.used.replace(/\s/g, '').toLowerCase().includes(categories.replace(/&/g, ','))
         ));
     }
 
@@ -69,15 +69,19 @@ const MoreProjects = () => {
                             {
                                 filterProjects.length > 0 
                                     ? 
-                                        finalProjects[carIdx].map((finalProject, idx) => (               
-                                            <Grid key={idx} item xs={12} sm={6} md={4}>
-                                                <ProjectCard project={finalProject}/>
+                                        finalProjects[carIdx].map(finalProject => (               
+                                            <Grid key={finalProject.details.name} item xs={12} sm={6} md={4}>
+                                                <ProjectCard project={finalProject} url={`/more-projects/${categories}`}/>
                                             </Grid>      
                                         ))
                                     : ( 
                                         <Typography
-                                            variant='h6' m='auto'
-                                            style={{ color: 'var(--white)', textAlign: 'center' }}
+                                            variant='h6'
+                                            style={{ 
+                                                color: 'var(--white)', textAlign: 'center',
+                                                position: 'absolute', left: '50%', top: '50%',
+                                                transform: 'translate(-50%, -50%)'
+                                            }}
                                         >
                                             Projects No Found
                                         </Typography> 

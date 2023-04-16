@@ -17,3 +17,4 @@ export { default as ProjectCard } from './ProjectCard';
 
 export { default as LeftSideBar } from './LeftSideBar';
 export { default as CarouselControls } from './CarouselControls';
+export { default as ScrollToTop } from './ScrollToTop';

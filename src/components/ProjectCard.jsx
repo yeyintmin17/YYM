@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+
 import { Box, Typography, Card, CardActionArea, CardContent, CardMedia } from '@mui/material';
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, url }) => {
     return (
         <Card sx={{ backgroundColor: 'var(--black)' }} >
             <CardContent 
@@ -17,7 +18,7 @@ const ProjectCard = ({ project }) => {
                 }}
             >
                 <span>
-                    <i className="fa-solid fa-cube"></i> 0{project.num}
+                    <i className="fa-solid fa-cube"></i> {project.num.toString().padStart(2, '0')}
                 </span>
 
                 <Link 
@@ -29,12 +30,12 @@ const ProjectCard = ({ project }) => {
             </CardContent>
 
             <CardActionArea>
-                <Link to={`/project-detail/${project.num}`}>
+                <Link to={`/project-detail/${project.num}`} state={{ url }}>
                     <Box>
                         <CardMedia
                             component='img'
                             src={project.img}
-                            alt={project.name}  
+                            alt={project.details.name}  
                         />
                     </Box>
                 </Link>
@@ -56,16 +57,20 @@ const ProjectCard = ({ project }) => {
                         gap: '10px',
                     }}
                 >
-                    <a href={project.repo} target='_blank' className='btn icon-btn link-hover'>
-                        <i className="fab fa-github"></i>
-                    </a>
-
-                    <a href={project.demo} target='_blank' className='btn icon-btn link-hover'>
-                        <i className="fas fa-link"></i>
-                    </a>
+                    {
+                        Object.keys(project.links).map(linkName => {
+                            const linkObj = project.links[linkName];
+                            
+                            return(
+                                <a key={linkName} href={linkObj.link} target='_blank' className='btn icon-btn link-hover'>
+                                    {linkObj.icon}
+                                </a>
+                            )
+                        })
+                    }
                 </Box>
                 
-                <Link to={`/project-detail/${project.num}`} className='link-hover'>More</Link>
+                <Link to={`/project-detail/${project.num}`} state={{ url }} className='link-hover'>More</Link>
             </CardContent>
         </Card>
     )

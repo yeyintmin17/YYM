@@ -3,17 +3,11 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Box, IconButton, CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { Navbar, MainPage, MoreProjects, ProjectDetail } from './components';
+import { Navbar, MainPage, MoreProjects, ProjectDetail, ScrollToTop } from './components';
 
 const theme = createTheme({
     palette: {
-        primary: {
-            main: '#B9ED64',
-        },
-
-        white: {
-            main: '#CCCCCC'
-        }
+        primary: { main: '#B9ED64', },
     },
 
     typography: {
@@ -53,6 +47,7 @@ const App = () => {
 
             <BrowserRouter>
                 <Box>
+                    <ScrollToTop/>
                     <Routes>
                         <Route path='/' element={<MainPage/>}/>
                         <Route path='/more-projects/:categories' element={<MoreProjects/>}/>
