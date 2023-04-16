@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Box, Typography } from '@mui/material';
 
 import { navLinks } from '../utils/constants';
@@ -23,18 +24,20 @@ const SectionTitle = ({ title, num, top, numColor, titleColor, subtitleColor }) 
 
                 <Typography 
                     variant='h6'
-                    sx={{ color: subtitleColor, fontWeight: 700 }}
+                    sx={{ color: subtitleColor, fontWeight: 600 }}
                 >
                     {targetItem.subtitle}
                 </Typography>
             </Box>
 
-            <span style={{ 
-                color: numColor, 
-                fontSize: 15, fontWeight: 700,
-                position: 'absolute', left: 0, top
-            }}>
-                -- 0{num}
+            <span 
+                style={{ 
+                    color: numColor, 
+                    fontSize: 15, fontWeight: 700,
+                    position: 'absolute', left: 0, top
+                }}
+            >
+                -- {num.toString().padStart(2, '0')}
             </span>
         </Box>
     )

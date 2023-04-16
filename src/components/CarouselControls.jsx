@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Stack } from '@mui/material';
+import { Stack } from '@mui/material';
 
 const CarouselControls = ({ carIdx, setCarIdx, carLength }) => {
     const chCarIdx = (sign) => {
@@ -26,8 +26,6 @@ const CarouselControls = ({ carIdx, setCarIdx, carLength }) => {
         tsIsPressed = true;
         tsStartX = e.clientX;
         e.currentTarget.style.cursor = 'grabbing';
-
-        console.log(e.clientX);
     }
 
     const tsEnd = (e) => {

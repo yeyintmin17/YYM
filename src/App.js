@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
-import { Box, IconButton, CssBaseline } from '@mui/material';
+import { Box, CssBaseline } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { Navbar, MainPage, MoreProjects, ProjectDetail, ScrollToTop } from './components';
@@ -48,6 +48,9 @@ const App = () => {
             <BrowserRouter>
                 <Box>
                     <ScrollToTop/>
+
+                    <Navbar nav={true} mainBtn={false}/>
+
                     <Routes>
                         <Route path='/' element={<MainPage/>}/>
                         <Route path='/more-projects/:categories' element={<MoreProjects/>}/>

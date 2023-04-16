@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { Box, Stack, Typography, Button, IconButton } from '@mui/material';
+
 import { projectCategories } from '../utils/constants';
 
 const LeftSideBar = ({ width, height, categoryArr, collapsed, setCollapsed }) => {
@@ -38,7 +39,7 @@ const LeftSideBar = ({ width, height, categoryArr, collapsed, setCollapsed }) =>
                     <Stack gap='10px'>
                         {
                             projectCategories.map(projectCategory => {
-                                const fixedProjectCategory = projectCategory.replace(/\s/g, '').toLowerCase();
+                                const fixedProjectCategory = projectCategory.toLowerCase().replace(/\s/g, '');
 
                                 return(
                                     <Button 
@@ -67,11 +68,10 @@ const LeftSideBar = ({ width, height, categoryArr, collapsed, setCollapsed }) =>
                 </Box>
             </Box>
 
-            <IconButton 
+            <IconButton
                 color='primary'
                 sx={{ 
-                    position: 'absolute', 
-                    right: '0', top: '10px',  zIndex: 300,
+                    position: 'absolute', right: '0', top: '10px',  zIndex: 300,
                     transform: 'translateX(70%)',
                 }}
                 onClick={() => setCollapsed(!collapsed)}

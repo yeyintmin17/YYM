@@ -1,18 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useParams, useLocation } from 'react-router-dom';
+
 import { Box, Stack, IconButton } from '@mui/material';
 
 import { navLinks } from '../utils/constants';
 
 const NavbarNav = () => {
-    const [ navTxt, setNavTxt ] = useState('home');
-    const [ collapsed, setCollapsed ] = useState(true);
+    const { hash } = useLocation();
 
+    let fixedHash = hash.includes('#') 
+        ? hash.substring(1, hash.indexOf('-'))
+        : 'home';
+
+    const [ navTxt, setNavTxt ] = useState(fixedHash);
+    const [ collapsed, setCollapsed ] = useState(true);
+    
     const handleCollapsed = () => {
         window.innerWidth < 900 ? setCollapsed(true) : setCollapsed(false);
     }
     window.addEventListener('resize', handleCollapsed);
 
     const chNavLink = () => {
+        if(hash.includes('#')){
+            const hashTag = document.querySelector(hash);
+            if(hashTag) hashTag.scrollIntoView(true);
+        }
+
         const navTxts = document.querySelectorAll('.nav-txt');
         const targetTxt = [...navTxts].find(val => val.innerText.toLowerCase() === navTxt);
 
@@ -30,16 +43,8 @@ const NavbarNav = () => {
         });
     }
 
-    useEffect(() => {
-        handleCollapsed();
-
-        const hash = window.location.hash;
-        if(hash.includes('#')){
-            setNavTxt(hash.substring(1, hash.indexOf('-')))
-        }
-    }, []);
-
-    useEffect(() => chNavLink(), [navTxt, collapsed]);
+    useEffect(() => { handleCollapsed() }, []);
+    useEffect(() => { chNavLink() }, [hash, navTxt, collapsed]);
 
     return (
         <Box>
@@ -59,26 +64,27 @@ const NavbarNav = () => {
             </IconButton>
 
             <Box 
-                className='navbar-nav'
-                sx={{ display: collapsed ? 'none' : 'block' }}
+                className='navbar-nav' sx={{ display: collapsed ? 'none' : 'block' }}
             >
-                <Stack direction={{ md: 'row', xs: 'column'}} spacing={2}>
+                <Stack direction={{ xs: 'column', md: 'row' }} columnGap={2}>
                     {
-                        navLinks.map(val => (
-                            <a
-                                href={"/#" + val.title + "-section"} 
-                                key={val.title} 
+                        navLinks.map(navLink => (
+                            <Link
+                                key={navLink.title} 
+                                to={navLink.link} 
 
                                 className='nav-link' 
                                 style={{ 
-                                    color: val.title === navTxt ? 'var(--primary)' : 'var(--white-non-active)',
-                                    opacity: val.title === navTxt ? 1 : 0.8
+                                    color: navLink.title === navTxt 
+                                        ? 'var(--primary)' 
+                                        : 'var(--white-non-active)',
+                                    opacity: navLink.title === navTxt ? 1 : 0.8
                                 }}
 
-                                onClick={() => setNavTxt(val.title)}
+                                onClick={() => setNavTxt(navLink.title)}
                             >
-                                {val.icon} <span className='nav-txt'>{val.title}</span>
-                            </a>
+                                {navLink.icon} <span className='nav-txt'>{navLink.title}</span>
+                            </Link>
                         ))
                     }
                 </Stack>

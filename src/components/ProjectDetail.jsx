@@ -3,7 +3,6 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
 import { Box, Stack, Typography } from '@mui/material';
 
-import { Navbar } from './';
 import { projects } from '../utils/constants';
 
 const styles = {
@@ -23,7 +22,7 @@ const styles = {
         color: 'var(--black)',
 
         fontSize: '18px',
-        fontWeight: 'bold',
+        fontWeight: 700,
     }
 }
 
@@ -35,46 +34,38 @@ const ProjectDetail = () => {
     const location = useLocation();
     
     const [ filterProject ] = projects.filter(project => ( project.num === numId ));
-    const detailsKeysArr = Object.keys(filterProject.details);
-
     const curIdx = projects.findIndex(project => ( project.num === numId ));
+
+    const chUrl = () => {
+        const url = location.state?.url;
+        navigate(url ? url : '/');
+    }
 
     const chId = (sign) => {
         if(sign === +1) numId++;
         if(sign === -1) numId--;
-        navigate(`/project-detail/${numId}`);
+        navigate(`/project-detail/${numId}`, { state: {url: location.state?.url} });
     }
 
     return (
         <Box>
-            <Navbar nav={false} mainBtn={true}/>
-
             <Stack 
-                direction='row'
-                justifyContent='space-between'
-                alignItems='center'
-                px='20px' py='10px'
-                sx={{ 
-                    position: 'fixed', 
-                    left: 0, right: 0, top: '10vh' 
-                }}
+                px={{ xs: 3, md: 5 }} py='10px'
+                direction='row' justifyContent='space-between' alignItems='center'
+                sx={{ position: 'fixed', left: 0, right: 0, top: '10vh' }}
             >
-                <button className='btn link-hover' style={{ fontSize: '15px', padding: '5px' }} onClick={() => navigate(location.state.url ? location.state.url : '/')}>
+                <button className='btn link-hover' style={{ fontSize: '15px', padding: '5px' }} onClick={chUrl}>
                     <i className="fa-solid fa-chevron-left"></i> <span>Back</span>
                 </button>
 
                 <span
                     style={{
-                        color: 'var(--primary)',
-                        fontSize: '15px',
-                        fontWeight: 700,
-                        
-                        letterSpacing: 1.5,
-                        whiteSpace: 'nowrap',
+                        backgroundColor: 'var(--body-non-active)', color: 'var(--primary)', 
+                        fontSize: '15px', fontWeight: 700,
+                        letterSpacing: 1.5, whiteSpace: 'nowrap',
 
                         padding: '3px',
-                        border: 'solid var(--primary)',   
-                        borderWidth: '2px 0'
+                        border: 'solid var(--primary)', borderWidth: '2px 0'
                     }}
                 >
                     {id.padStart(2, '0')}
@@ -108,7 +99,7 @@ const ProjectDetail = () => {
                         sx={{ width: { xs: '100%', sm: '70%', md: '50%' }}}
                     >
                         {
-                            detailsKeysArr.map(key => (
+                            Object.keys(filterProject.details).map(key => (
                                 <Stack key={key} gap='2.5px'>
                                     <Typography sx={{ color: 'var(--primary)', textTransform: 'capitalize' }}>{key}:</Typography>
 

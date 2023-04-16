@@ -1,9 +1,9 @@
 import React from 'react';
+
 import { Box, Stack, Typography, Divider } from '@mui/material';
 
 import { SectionTitle } from './';
 import { contacts } from '../utils/constants';
-import { SpatialTracking } from '@mui/icons-material';
 
 const ContactSection = ({ num, backgroundColor, py }) => {
     return (
@@ -45,7 +45,7 @@ const ContactSection = ({ num, backgroundColor, py }) => {
 
                     <Divider sx={{ backgroundColor: 'var(--body)', my: 4 }}/>
 
-                    <Typography sx={{ textAlign: 'center', fontWeight: 700 }} >
+                    <Typography sx={{ textAlign: 'center', fontWeight: 600 }} >
                         <i className="fas fa-copyright"></i> {new Date().getUTCFullYear()} Copyright, Inc. All rights reserved.
                     </Typography>
                 </Box>

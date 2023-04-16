@@ -25,6 +25,12 @@
     scroll-behavior: smooth;
 }
 
+::selection,
+::-moz-selection{
+    background-color: var(--black);
+    color: var(--primary);
+}
+
 html{
     scrollbar-color: var(--primary) var(--black);
 }
@@ -113,7 +119,7 @@ body{
 .border-btn{
     color: var(--primary);
     font-size: 13px;
-    font-weight: 700;
+    font-weight: 600;
    
     padding: 5px 20px;
     border: 2px solid var(--primary);
@@ -131,13 +137,6 @@ body{
 
     font-size: 15px;
     border-radius: 10px;
-    
-    display: grid;
-    place-items: center;
-}
-
-.btn-sm{
-    font-size: 10px;
 }
 
 .link-hover{
@@ -148,12 +147,16 @@ body{
     color: var(--primary);
 }
 
+.btn-sm{
+    font-size: 10px;
+}
 
 .section{
+    padding: 100px 0;
     position: relative;
 }
 
-/* Start Navbar Section */
+/* Start Navbar */
 
 .navbar-nav{
     position: relative;
@@ -161,7 +164,7 @@ body{
 
 .nav-link{
     font-size: 15px;
-    font-weight: 700;
+    font-weight: 600;
     text-decoration: none;
 
     padding: 5px 25px;
@@ -191,10 +194,10 @@ body{
 }
 
 
-@media (max-width: 900px){
+@media (max-width: 899px){
     .navbar-nav{
         background-color: var(--btn);
-        padding: 15px;
+        padding: 10px;
         border-radius: 5px;
         box-shadow: 0 0 2.5px 0 var(--mirror);
 
@@ -203,19 +206,30 @@ body{
         top: calc(10vh + 20px);
         z-index: 200;
     }
+
+    .nav-link{
+        font-size: 13px;
+        padding: 8px 20px;
+    }
+
+    .nav-pointer{
+        width: 8px;
+        height: 8px;
+    }
 }
 
-/* End Navbar Section */
+/* End Navbar */
 
-/* Start Left Side Bar Section */
+/* Start Left Side Bar */
 
 .left-side-bar-title{
     color: var(--white);
     font-size: 13px;
+    font-weight: 600;
     margin-bottom: 20px !important;
 }
 
-/* End Left Side Bar Section */
+/* End Left Side Bar */
 
 /* Start Carousel Controls */
 

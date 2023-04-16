@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { Box, Stack } from '@mui/material';
+
 import { NavbarNav } from './';
 
 const Navbar = ({ nav, mainBtn }) => {
     return (
         <Stack 
             direction='row' justifyContent='space-between' alignItems='center' 
-            px={{ md: 5, xs: 3 }} py={2}
+            px={{ xs: 3, md: 5 }} py={2}
             sx={{ height: '10vh', backgroundColor: 'var(--body)', userSelect: 'none', position: 'sticky', left: 0, top: 0, zIndex: 100 }}
         >
             <Link to='/'>

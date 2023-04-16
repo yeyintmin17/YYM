@@ -5,18 +5,18 @@ const calcAge = (birthDate, timeZone) => {
     return currentDate.diff(birthDate, 'years');
 }
 
-const age = calcAge(moment('2003-12-17'), 'Asia/Yangon')
+const age = calcAge(moment('2003-12-17'), 'Asia/Yangon');
 
 export const navLinks = [
-    { title: "home", subtitle: null, icon: <i className="fa-solid fa-house"></i> },
+    { title: "home", subtitle: null, icon: <i className="fa-solid fa-house"></i>, link: '/#home-section' },
 
-    { title: "about", subtitle: 'who am i ?', icon: <i className="fa-solid fa-user-astronaut"></i> },
+    { title: "about", subtitle: 'who am i ?', icon: <i className="fa-solid fa-user-astronaut"></i>, link: '/#about-section' },
 
-    { title: "skills", subtitle: 'what can i do ?', icon: <i className="fa-solid fa-lightbulb"></i> },
+    { title: "skills", subtitle: 'what can i do ?', icon: <i className="fa-solid fa-lightbulb"></i>, link: '/#skills-section' },
 
-    { title: "projects", subtitle: 'what have i done ?', icon: <i className="fa-solid fa-cubes"></i> },
+    { title: "projects", subtitle: 'what have i done ?', icon: <i className="fa-solid fa-cubes"></i>, link: '/more-projects/all' },
     
-    { title: "contact", subtitle: 'get in touch', icon: <i className="fa-solid fa-mobile-screen-button"></i> },
+    { title: "contact", subtitle: 'get in touch', icon: <i className="fa-solid fa-mobile-screen-button"></i>, link: '/#contact-section' },
 ]
 
 export const homeSectionTxts = [
@@ -29,7 +29,7 @@ export const homeSectionTxts = [
 
 export const aboutMe = {
     img: '../assets/img/profile/pro2.jpg',
-    txt: `Hello  everyone. I’m Ye Yint Min. ${age} years old. I started studying programming in July 2021. Currently, I am learning React & PHP. Have a nice day.`
+    txt: `Hello everyone. I’m Ye Yint Min. ${age} years old. I started studying programming in July 2021. Currently, I am learning React & PHP. Have a nice day.`
 }
 
 export const skills = [
@@ -65,7 +65,7 @@ export const projects = [
         },  
         
         details: {
-            name: "moscow",
+            name: "Moscow",
             used: "JavaScript",
             date: "30 July 2022 to 23 Sep 2022",
             description: "This website is one of my favorites. To revise JavaScript, created it. I played localStorage in Full Menu section. You can also make booking in the Booking section.",
@@ -96,7 +96,7 @@ export const projects = [
         },  
 
         details: {
-            name: "tyndale clone",
+            name: "Tyndale Clone",
             used: "Bootstrap, jQuery",
             date: "17 Oct 2022 to 14 Nov 2022",
             description: "To practice Bootstrap & jQuery. But I had no idea so took the template from <a href='https://styleshout.com' target='_blank' class='link-hover'>StyleShout</a> but created some parts according to my idea. I don’t like this website very much. The animation is pretty good, but each section has no pictures, so It feel like lifeless.",
@@ -127,7 +127,7 @@ export const projects = [
         },  
         
         details: {
-            name: "oetsu", 
+            name: "Oetsu", 
             used: "Tailwind CSS, jQuery",
             date: "12 Jan 2023 to 18 Jan 2023",
             description: "At first, it was just to practice Figma, but I liked the design and wrote the code. At that time, I was still learning Tailwind CSS, so added it to practice. This website is the first website where the design is carefully drawn and then the code is written.",

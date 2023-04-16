@@ -1,8 +1,8 @@
 import React from 'react';
+
 import { Box, Stack, Typography } from '@mui/material';
 
 import { SectionTitle } from './';
-
 import { aboutMe } from '../utils/constants';
 
 const AboutSection = ({ num, backgroundColor, py }) => {
@@ -25,24 +25,18 @@ const AboutSection = ({ num, backgroundColor, py }) => {
                         position: 'relative',
                         '&::before': {
                             content: '""',
-                            width: '100%',
-                            height: '100%',
+                            width: '100%', height: '100%',
                             border: '3px solid var(--white-non-active)',
-
-                            position: 'absolute',
-                            left: '15px',
-                            top: '15px'
+                            position: 'absolute', left: '15px', top: '15px'
                         }
                     }}
                 >
                     <img 
-                        src={aboutMe.img}
-                        alt='Profile' 
+                        src={aboutMe.img} alt='Profile' 
                         width='100%' height='100%' 
                         style={{
                             objectFit: 'cover',
-                            position: 'relative',
-                            zIndex: 1
+                            position: 'relative', zIndex: 1
                         }}
                     />
                 </Box>
@@ -51,11 +45,8 @@ const AboutSection = ({ num, backgroundColor, py }) => {
                     variant='h5'
                     dangerouslySetInnerHTML={{ __html: aboutMe.txt }}
                     sx={{ 
-                        width: { xs: '90%', sm: '450px' }, 
-                        color: 'var(--white)', 
-                        textAlign: 'center', 
-                        lineHeight: 1.5,
-                        letterSpacing: 1.5
+                        width: { xs: '90%', sm: '450px' }, color: 'var(--white)', 
+                        textAlign: 'center', lineHeight: 1.5, letterSpacing: 1.5
                     }}
                 />
             </Stack>

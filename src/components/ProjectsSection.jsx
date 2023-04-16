@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Box, Grid, Button } from '@mui/material';
+
+import { Box, Grid } from '@mui/material';
 
 import { SectionTitle, ProjectCard } from './';
 import { projects } from '../utils/constants';

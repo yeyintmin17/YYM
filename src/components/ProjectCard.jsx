@@ -9,12 +9,8 @@ const ProjectCard = ({ project, url }) => {
             <CardContent 
                 sx={{ 
                     color: 'var(--white)',
-                    fontSize: '20px',
-                    fontWeight: 700,
-                    letterSpacing: 1.5,
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center'
+                    fontSize: '20px', fontWeight: 600, letterSpacing: 1.5,
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center'
                 }}
             >
                 <span>
@@ -32,11 +28,7 @@ const ProjectCard = ({ project, url }) => {
             <CardActionArea>
                 <Link to={`/project-detail/${project.num}`} state={{ url }}>
                     <Box>
-                        <CardMedia
-                            component='img'
-                            src={project.img}
-                            alt={project.details.name}  
-                        />
+                        <CardMedia component='img' src={project.img} alt={project.details.name}/>
                     </Box>
                 </Link>
             </CardActionArea>
@@ -44,17 +36,12 @@ const ProjectCard = ({ project, url }) => {
             <CardContent
                 sx={{ 
                     p: '16px !important',
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
                 }}
             >
                 <Box 
                     sx={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        gap: '10px',
+                        display: 'flex', alignItems: 'center', gap: '10px',
                     }}
                 >
                     {
