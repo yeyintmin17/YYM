@@ -7,7 +7,6 @@ import { navLinks } from '../utils/constants';
 
 const NavbarNav = () => {
     const { hash } = useLocation();
-
     let fixedHash = hash.includes('#') 
         ? hash.substring(1, hash.indexOf('-'))
         : 'home';
@@ -20,12 +19,16 @@ const NavbarNav = () => {
     }
     window.addEventListener('resize', handleCollapsed);
 
-    const chNavLink = () => {
+    const chUrl = () => {
         if(hash.includes('#')){
             const hashTag = document.querySelector(hash);
             if(hashTag) hashTag.scrollIntoView(true);
         }
 
+        chNavLink();
+    }
+
+    const chNavLink = () => {
         const navTxts = document.querySelectorAll('.nav-txt');
         const targetTxt = [...navTxts].find(val => val.innerText.toLowerCase() === navTxt);
 
@@ -44,7 +47,10 @@ const NavbarNav = () => {
     }
 
     useEffect(() => { handleCollapsed() }, []);
-    useEffect(() => { chNavLink() }, [hash, navTxt, collapsed]);
+
+    useEffect(() => { setNavTxt(fixedHash) }, [fixedHash]);
+    useEffect(() => { chUrl() }, [navTxt]);
+    useEffect(() => { chNavLink() }, [collapsed]);
 
     return (
         <Box>

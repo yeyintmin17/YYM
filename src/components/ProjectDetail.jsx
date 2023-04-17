@@ -9,6 +9,7 @@ const styles = {
     linkBtn: {
         backgroundColor: 'var(--btn)',
         fontSize: '15px',
+        textTransform: 'capitalize',
 
         padding: '5px 10px',
         borderRadius: '5px',
@@ -85,7 +86,7 @@ const ProjectDetail = () => {
                                     const linkObj = filterProject.links[linkName];
 
                                     return (
-                                        <a key={linkName} href={linkObj.link} className='btn link-hover' style={{ ...styles.linkBtn }}>
+                                        <a key={linkName} href={linkObj.link} target='_blank' className='btn link-hover' style={{ ...styles.linkBtn }}>
                                             {linkName} {linkObj.icon}
                                         </a>
                                     )
